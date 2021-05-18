@@ -43,3 +43,7 @@ london_co = {
         "routing": True,
     },
 }
+iface = input('Введите имя интерфейса: ')
+keys = list(london_co[iface].keys())
+key = input('Введите имя параметра ({}):'.format(','.join(keys)))
+print(london_co[iface].get(key.lower(), 'Такого параметра нет'))

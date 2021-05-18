@@ -50,3 +50,7 @@ london_co = {
         "routing": True,
     },
 }
+iface = input('Введите имя устройства: ')
+keys = list(london_co[iface].keys())
+key = input('Введите имя параметра ({}):'.format(','.join(keys)))
+print(london_co[iface][key])

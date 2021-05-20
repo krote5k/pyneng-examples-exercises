@@ -41,3 +41,24 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+ip = input('Введите адрес/маску в формате 10.1.1.0/24:')
+ip_mask = ip.split('/')
+addr = str(ip_mask[0])
+oct1, oct2, oct3, oct4 = addr.split('.')
+mask = int(ip_mask[1])
+print('Network:')
+#print(f'{oct1:8}  {oct2:8}  {oct3:8}  {oct4:8}')
+#print(f'{int(oct1):08b}  {int(oct2):08b}  {int(oct3):08b}  {int(oct4):08b}')
+ip_bin = f'{int(oct1):08b}{int(oct2):08b}{int(oct3):08b}{int(oct4):08b}'
+ip_net = ip_bin[0:mask]
+oct1_1, oct2_1, oct3_1, oct4_1 = ip_net[0:8], ip_net[8:16], ip_net[16:24], ip_net[24:32]
+print(f'{int(oct1_1, 2):<8} {int(oct2_1, 2):<8} {int(oct3_1, 2):<8} {int(oct4_1, 2):<8}')
+print(f'{oct1_1:8}  {oct2_1:8}  {oct3_1:8}  {oct4_1:8}')
+print('\nMask:')
+print(f'/{mask}')
+mask_bin = mask * '1' + '0' * (32 - mask)
+oct11, oct12, oct13, oct14 = mask_bin[0:8], mask_bin[8:16], mask_bin[16:24], mask_bin[24:]
+print(f'{int(oct11, 2):<8}  {int(oct12, 2):<8}  {int(oct13, 2):<8}  {int(oct14, 2):<8}')
+print(f'{oct11:8}  {oct12:8}  {oct13:8}  {oct14:8}')
+

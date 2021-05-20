@@ -51,9 +51,9 @@ print('Network:')
 #print(f'{oct1:8}  {oct2:8}  {oct3:8}  {oct4:8}')
 #print(f'{int(oct1):08b}  {int(oct2):08b}  {int(oct3):08b}  {int(oct4):08b}')
 ip_bin = f'{int(oct1):08b}{int(oct2):08b}{int(oct3):08b}{int(oct4):08b}'
-ip_net = ip_bin[0:mask]
+ip_net = ip_bin[0:mask] + '0' * (32 - mask)
 oct1_1, oct2_1, oct3_1, oct4_1 = ip_net[0:8], ip_net[8:16], ip_net[16:24], ip_net[24:32]
-print(f'{int(oct1_1, 2):<8} {int(oct2_1, 2):<8} {int(oct3_1, 2):<8} {int(oct4_1, 2):<8}')
+print(f'{int(oct1_1, 2):<8}  {int(oct2_1, 2):<8}  {int(oct3_1, 2):<8}  {int(oct4_1, 2):<8}')
 print(f'{oct1_1:8}  {oct2_1:8}  {oct3_1:8}  {oct4_1:8}')
 print('\nMask:')
 print(f'/{mask}')
